@@ -22,7 +22,7 @@ export class AuthenticationService {
    * With that client id github redirect the user with the authentication `code` back to spa.
    * With that `code` we request with a cors proxy the actual token.
    */
-  checkAuthentication() {
+  checkAuthentication(): void {
     this.router.events.subscribe(async event => {
       if (!(event instanceof RoutesRecognized)) { return }
       if (localStorage.getItem('access_token')) { return }
