@@ -1,0 +1,15 @@
+[
+    {
+        "name": "A",
+        "jahrgang": 5,
+        "department": "HITM",
+        "students": [
+            {
+                "username": "halilbahar",
+                "firstname": "Halil",
+                "surname": "Bahar",
+                "nickname": "Balalhalil"
+            }
+        ]
+    }
+]
