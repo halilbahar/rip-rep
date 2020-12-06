@@ -1,7 +1,7 @@
 [
     {
         "name": "A",
-        "jahrgang": 5,
+        "year": 5,
         "department": "HITM",
         "students": [
             {
