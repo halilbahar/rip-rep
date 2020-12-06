@@ -12,7 +12,9 @@ export class AuthenticationService {
   constructor(
     private router: Router,
     private http: HttpClient
-  ) { }
+  ) {
+    this.checkAuthentication();
+  }
 
   /**
    * Checks if a token is stored in the local storage.
