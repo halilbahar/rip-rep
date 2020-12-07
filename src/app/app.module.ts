@@ -8,13 +8,15 @@ import { GraphQLModule } from './graphql.module';
 import { ClassService } from './core/services/class.service';
 import { ClassListComponent } from './pages/class-list/class-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ClassStatisticComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClassListComponent } from './pages/class-list/class-list.component';
+import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: ClassListComponent },
+  { path: 'class/:name', component: ClassStatisticComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
