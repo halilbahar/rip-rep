@@ -28,7 +28,7 @@ export class ClassService {
   }
 
   /**
-   * Find a class by year, name and department from the classes.json file
+   * Find a class the complete displayed name from the classes.json file
    * 
    * @param completeName which is build by: <year><name><department>. For Example: 5ahitm => 5|a|hitm
    * 
