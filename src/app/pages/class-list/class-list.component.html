@@ -1,0 +1,9 @@
+<div *ngFor="let class of classes" class="card pointer">
+  {{ class.year + class.name + class.department }}
+
+  <div class="chip-list">
+    <div *ngFor="let student of class.students" class="chip">
+      {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
+    </div>
+  </div>
+</div>

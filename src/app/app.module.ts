@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { ClassService } from './core/services/class.service';
+import { ClassListComponent } from './pages/class-list/class-list.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClassListComponent
   ],
   imports: [
     BrowserModule,
