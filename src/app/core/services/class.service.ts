@@ -30,14 +30,12 @@ export class ClassService {
   /**
    * Find a class by year, name and department from the classes.json file
    * 
-   * @param year of the class
-   * @param name of the class
-   * @param department  of the class
+   * @param completeName which is build by: <year><name><department>. For Example: 5ahitm => 5|a|hitm
    * 
    * @returns the class or null
    */
-  getClassByName(year: number, name: string, department: string): Class | null {
-    const clazz = this.classes.find(clazz => clazz.year === year && clazz.name === name && clazz.department === department);
+  getClassByName(completeName: string): Class | null {
+    const clazz = this.classes.find(clazz => completeName === clazz.year + clazz.name + clazz.department);
     return clazz || null;
   }
 }
