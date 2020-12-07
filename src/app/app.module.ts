@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { ClassService } from './core/services/class.service';
 import { ClassListComponent } from './pages/class-list/class-list.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClassListComponent
+    ClassListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
