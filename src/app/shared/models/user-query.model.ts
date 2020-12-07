@@ -1,8 +1,4 @@
-export interface StudentQuery {
-    data: UserQuery;
-}
-
-interface UserQuery {
+export interface UserQuery {
     user: ContributionsCollectionQuery;
     login: string;
 }
