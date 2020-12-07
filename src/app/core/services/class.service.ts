@@ -11,9 +11,7 @@ export class ClassService {
 
   constructor(
     private http: HttpClient
-  ) {
-    this.readClasses();
-  }
+  ) { }
 
   /**
    * Read the local classes.json file from the assets folder
