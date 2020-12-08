@@ -1,10 +1,10 @@
-@import 'variables.scss';
+@import "variables.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .pointer {
@@ -12,7 +12,7 @@
 }
 
 .chip-list > *:not(:first-child) {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .chip {
@@ -25,7 +25,13 @@
 
 .card {
   background-color: $card-background-color;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 1rem;
+}
+
+.chart-wrapper {
+  display: block;
+  position: relative;
+  flex: 1;
 }

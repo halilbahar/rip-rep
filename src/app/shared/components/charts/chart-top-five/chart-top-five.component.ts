@@ -14,7 +14,7 @@ export class ChartTopFiveComponent implements OnInit {
   @Input() days: number;
   @Input('label-title') title: string;
 
-  barChartOptions: ChartOptions = { responsive: true };
+  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'horizontalBar';
   barChartLegend = true;

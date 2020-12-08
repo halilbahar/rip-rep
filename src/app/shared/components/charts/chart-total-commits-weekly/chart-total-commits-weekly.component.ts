@@ -12,7 +12,7 @@ export class ChartTotalCommitsWeeklyComponent implements OnInit {
 
   @Input() userQueries: UserQuery[];
 
-  barChartOptions: ChartOptions = { responsive: true };
+  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
