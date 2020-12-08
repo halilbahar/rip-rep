@@ -5,6 +5,17 @@
         "department": "HITM",
         "students": [
             {
+                "username": "laraaigner",
+                "firstname": "Lara",
+                "surname": "Aigner"
+            },
+            {
+                "username": "davidandraschko",
+                "firstname": "David",
+                "surname": "Andraschko",
+                "nickname": "Andraschenkovic"
+            },
+            {
                 "username": "halilbahar",
                 "firstname": "Halil",
                 "surname": "Bahar",
@@ -12,8 +23,88 @@
             },
             {
                 "username": "sonjacao",
-                "firstname": "sonja",
-                "surname": "cao"
+                "firstname": "Sonja",
+                "surname": "Cao"
+            },
+            {
+                "username": "donnabauerc",
+                "firstname": "Christian",
+                "surname": "Donnabauer"
+            },
+            {
+                "username": "franziskusehmeir",
+                "firstname": "Franziskus",
+                "surname": "Ehmeir"
+            },
+            {
+                "username": "KonstantinFrank01",
+                "firstname": "Konstantin",
+                "surname": "Frank"
+            },
+            {
+                "username": "lorenzgruber",
+                "firstname": "Lorenz",
+                "surname": "Gruber"
+            },
+            {
+                "username": "evahildenbrand",
+                "firstname": "Eva",
+                "surname": "Hildenbrand"
+            },
+            {
+                "username": "ninaholzinger",
+                "firstname": "Nina",
+                "surname": "Holzinger"
+            },
+            {
+                "username": "simonittensammer",
+                "firstname": "Simon",
+                "surname": "Ittensammer"
+            },
+            {
+                "username": "milicmaria",
+                "firstname": "Maria",
+                "surname": "Milic"
+            },
+            {
+                "username": "irfanmuratspahic",
+                "firstname": "Irfan",
+                "surname": "Muratspahic"
+            },
+            {
+                "username": "julinad",
+                "firstname": "Juliane",
+                "surname": "Naderer"
+            },
+            {
+                "username": "schauflinger",
+                "firstname": "Hanna",
+                "surname": "Schauflinger"
+            },
+            {
+                "username": "florianschickmair",
+                "firstname": "Florian",
+                "surname": "Schickmair"
+            },
+            {
+                "username": "SchubertSebastian",
+                "firstname": "Sebastian",
+                "surname": "Schubert"
+            },
+            {
+                "username": "tealeon",
+                "firstname": "Leon",
+                "surname": "Tea"
+            },
+            {
+                "username": "schirinturko",
+                "firstname": "Schirin",
+                "surname": "Turko"
+            },
+            {
+                "username": "simonZweimueller",
+                "firstname": "Simon",
+                "surname": "Zweimüller"
             }
         ]
     }
