@@ -16,7 +16,7 @@ export class ChartTopFiveComponent implements OnInit {
 
   barChartOptions: ChartOptions = { responsive: true };
   barChartLabels: Label[] = [];
-  barChartType: ChartType = 'bar';
+  barChartType: ChartType = 'horizontalBar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
 
