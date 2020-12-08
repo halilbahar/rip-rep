@@ -62,7 +62,7 @@ export class ChartTotalCommitsWeeklyComponent implements OnInit {
     this.barChartLabels.push(...weekdayLabels);
     this.barChartData.push({
       data: dailyContributions,
-      label: 'count'
+      label: 'Commits'
     })
   }
 }

@@ -56,7 +56,7 @@ export class ChartTopFiveComponent implements OnInit {
     topFiveUsers.forEach(user => this.barChartLabels.push(user.username));
     this.barChartData.push({
       data: [...topFiveUsers.map(user => user.lastWeeksContribution)],
-      label: 'Count'
+      label: 'Commits'
     });
   }
 }
