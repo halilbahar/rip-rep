@@ -1,4 +1,4 @@
-@import '../assets/scss/variables';
+@import "../assets/scss/variables";
 
 :host {
   height: 100vh;
@@ -7,6 +7,7 @@
   background-color: $website-background-color;
 }
 
-::ng-deep router-outlet +* {
+::ng-deep router-outlet + * {
   min-height: $router-outlet-height;
+  display: block;
 }
