@@ -1,18 +1,26 @@
 export interface UserQuery {
-    user: ContributionsCollectionQuery;
+    user: User;
+}
+
+interface User {
+    contributionsCollection: ContributionsCollection;
     login: string;
 }
 
-interface ContributionsCollectionQuery {
+interface ContributionsCollection {
+    contributionCalendar: ContributionCalendar;
+}
+
+interface ContributionCalendar {
     totalContributions: number;
-    weeks: WeeksQuery[];
+    weeks: ContributionCalendarWeek[];
 }
 
-interface WeeksQuery {
-    contributionDays: contributionDaysQuery[];
+interface ContributionCalendarWeek {
+    contributionDays: ContributionCalendarDay[];
 }
 
-interface contributionDaysQuery {
+interface ContributionCalendarDay {
     contributionCount: number;
     date: string;
 }
