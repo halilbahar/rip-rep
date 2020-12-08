@@ -23,9 +23,9 @@ export class ChartTopFiveComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    type LastWeekUserContribution = { username: string, lastWeeksContribution: number };
+    type LastWeeksUserContribution = { username: string, lastWeeksContribution: number };
 
-    const users: LastWeekUserContribution[] = [];
+    const users: LastWeeksUserContribution[] = [];
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
       // Reverse the weeks so the beginning is this the current week
