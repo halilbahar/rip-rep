@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ClassListComponent } from './pages/class-list/class-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { ChartTopFiveWeeklyComponent } from './shared/components/charts/chart-top-five-weekly/chart-top-five-weekly.component';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { FooterComponent } from './core/footer/footer.component';
     ClassListComponent,
     PageNotFoundComponent,
     ClassStatisticComponent,
-    FooterComponent
+    FooterComponent,
+    ChartTopFiveWeeklyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GraphQLModule
+    GraphQLModule,
+    ChartsModule
   ],
   providers: [
     {
