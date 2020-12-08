@@ -8,6 +8,7 @@
 }
 
 ::ng-deep router-outlet + * {
-  min-height: $router-outlet-height;
   display: block;
+  min-height: $router-outlet-height;
+  height: 1px;
 }
