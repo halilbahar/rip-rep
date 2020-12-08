@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { ChartTopFiveWeeklyComponent } from './shared/components/charts/chart-top-five-weekly/chart-top-five-weekly.component';
+import { AuthenticationService } from './core/services/authentication.service';
 
 
 @NgModule({
@@ -36,8 +37,14 @@ import { ChartTopFiveWeeklyComponent } from './shared/components/charts/chart-to
       useFactory: (classSerivce: ClassService) => () => classSerivce.readClasses(),
       deps: [ClassService],
       multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (authenticationService: AuthenticationService) => () => authenticationService.checkAuthentication(),
+      deps: [AuthenticationService],
+      multi: true
     }
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

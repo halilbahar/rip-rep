@@ -49,6 +49,13 @@ export class AuthenticationService {
         );
         const githubToken = await authenticationRequest.toPromise();
         localStorage.setItem('access_token', githubToken.access_token);
+
+        this.router.navigate([], {
+          queryParams: {
+            'code': null
+          },
+          queryParamsHandling: 'merge'
+        });
       }
     });
   }
