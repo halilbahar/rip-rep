@@ -8,7 +8,7 @@ import { version } from '../../../../package.json';
 })
 export class FooterComponent implements OnInit {
 
-  private version: string = version;
+  version: string = version;
 
   constructor() { }
 
