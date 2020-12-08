@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
-import { AuthenticationService } from './core/services/authentication.service';
 import { HttpHeaders } from '@angular/common/http';
 
 const uri = 'https://api.github.com/graphql';

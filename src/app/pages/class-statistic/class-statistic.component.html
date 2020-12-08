@@ -1,9 +1,9 @@
 <div class="statistic-grid">
-  <app-chart-top-five-weekly [userQueries]="userQueries"></app-chart-top-five-weekly>
-  <div style="background-color: red;"></div>
+  <app-chart-top-five [userQueries]="userQueries" [days]="7" label-title="week"></app-chart-top-five>
+  <app-chart-top-five [userQueries]="userQueries" [days]="30" label-title="month"></app-chart-top-five>
   <div style="background-color: red;"></div>
   
-  <div style="background-color: red;"></div>
+  <app-chart-total-commits-weekly [userQueries]="userQueries"></app-chart-total-commits-weekly>
   <div style="background-color: red;"></div>
   <div style="background-color: red;"></div>
 

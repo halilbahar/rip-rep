@@ -11,8 +11,9 @@ import { ClassListComponent } from './pages/class-list/class-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
 import { FooterComponent } from './core/footer/footer.component';
-import { ChartTopFiveWeeklyComponent } from './shared/components/charts/chart-top-five-weekly/chart-top-five-weekly.component';
+import { ChartTopFiveComponent } from './shared/components/charts/chart-top-five/chart-top-five.component';
 import { AuthenticationService } from './core/services/authentication.service';
+import { ChartTotalCommitsWeeklyComponent } from './shared/components/charts/chart-total-commits-weekly/chart-total-commits-weekly.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AuthenticationService } from './core/services/authentication.service';
     PageNotFoundComponent,
     ClassStatisticComponent,
     FooterComponent,
-    ChartTopFiveWeeklyComponent
+    ChartTopFiveComponent,
+    ChartTotalCommitsWeeklyComponent
   ],
   imports: [
     BrowserModule,
