@@ -1,2 +1,7 @@
 $website-background-color: #F6F6F6;
+$theme-dark: #24292E;
 $card-background-color: #FFFFFF;
+
+$footer-height: 7.5vh;
+$header-height: 0;
+$router-outlet-height: 100vh - $header-height - $footer-height;

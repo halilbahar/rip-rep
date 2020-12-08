@@ -1,0 +1,7 @@
+@import '../../../assets/scss/variables.scss';
+
+:host {
+  height: $footer-height;
+  display: block;
+  background-color: $theme-dark;
+}

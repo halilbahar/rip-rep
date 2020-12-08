@@ -6,3 +6,7 @@
   display: block;
   background-color: $website-background-color;
 }
+
+::ng-deep router-outlet +* {
+  min-height: $router-outlet-height;
+}
