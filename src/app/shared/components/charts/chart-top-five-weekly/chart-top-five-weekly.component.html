@@ -1,1 +1,13 @@
-<p>chart-top-five-weekly works!</p>
+<div class="chart-title">
+  Top 5 Commiter this week
+</div>
+
+<canvas
+  baseChart
+  [datasets]="barChartData"
+  [labels]="barChartLabels"
+  [options]="barChartOptions"
+  [legend]="barChartLegend"
+  [chartType]="barChartType"
+>
+</canvas>
