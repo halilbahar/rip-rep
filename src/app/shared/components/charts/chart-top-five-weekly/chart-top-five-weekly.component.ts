@@ -32,7 +32,7 @@ export class ChartTopFiveWeeklyComponent implements OnInit {
       let lastWeekContributionCount = 0;
       let count = 0;
       for (const day of lastWeek.contributionDays) {
-        lastWeekContributionCount += day.contributionCount
+        lastWeekContributionCount += day.contributionCount;
         count++;
       }
       // If it is not sunday get the week before that and count the contributions until 7 days are full
