@@ -9,6 +9,7 @@ import { ClassService } from './core/services/class.service';
 import { ClassListComponent } from './pages/class-list/class-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ClassStatisticComponent } from './pages/class-statistic/class-statistic.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ClassStatisticComponent } from './pages/class-statistic/class-statistic
     AppComponent,
     ClassListComponent,
     PageNotFoundComponent,
-    ClassStatisticComponent
+    ClassStatisticComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
