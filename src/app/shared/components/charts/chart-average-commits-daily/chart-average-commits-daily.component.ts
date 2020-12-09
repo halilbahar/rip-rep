@@ -46,7 +46,7 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
     }
 
     // shift arrays so that monday is first
-    days.push(days.shift());
+    days.push(days.shift()!);
     averageContributions.push(averageContributions.shift());
 
     this.barChartLabels.push(...days);
