@@ -1,0 +1,19 @@
+<div class="logo pointer" routerLink="/">
+  <img src="assets/images/RipRep-Logo.png" alt="">
+  Rip<span>Rep</span>
+</div>
+
+<div class="breadcrumbs">
+  <ng-container *ngFor="let breadcrumb of breadcrumbs; let i = index">
+    <span *ngIf="breadcrumb.link && i !== breadcrumbs.length - 1; else noBreadcrumb" [routerLink]="breadcrumb.link">
+      {{ breadcrumb.title }}
+    </span>
+    <ng-template #noBreadcrumb>
+      {{ breadcrumb.title }}
+    </ng-template>
+  </ng-container>
+</div>
+
+<div class="requests">
+  Requests:&nbsp;<span> 4280 / 5000 </span>
+</div>
