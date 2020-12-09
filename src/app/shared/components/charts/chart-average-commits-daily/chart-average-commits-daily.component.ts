@@ -45,6 +45,10 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
       averageContributions[i] = +(contributionsPerWeekday[i] / (weekDayCounter[i] / this.userQueries.length)).toFixed(2);
     }
 
+    // shift arrays so that monday is first
+    days.push(days.shift());
+    averageContributions.push(averageContributions.shift());
+
     this.barChartLabels.push(...days);
     this.barChartData.push({
       data: averageContributions,
