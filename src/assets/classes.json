@@ -7,104 +7,124 @@
             {
                 "username": "laraaigner",
                 "firstname": "Lara",
-                "surname": "Aigner"
+                "surname": "Aigner",
+                "sex": "W"
             },
             {
                 "username": "davidandraschko",
                 "firstname": "David",
                 "surname": "Andraschko",
+                "sex": "M",
                 "nickname": "Andraschenkovic"
             },
             {
                 "username": "halilbahar",
                 "firstname": "Halil",
                 "surname": "Bahar",
+                "sex": "M",
                 "nickname": "Balalhalil"
             },
             {
                 "username": "sonjacao",
                 "firstname": "Sonja",
-                "surname": "Cao"
+                "surname": "Cao",
+                "sex": "W"
             },
             {
                 "username": "donnabauerc",
                 "firstname": "Christian",
-                "surname": "Donnabauer"
+                "surname": "Donnabauer",
+                "sex": "M"
             },
             {
                 "username": "franziskusehmeir",
                 "firstname": "Franziskus",
-                "surname": "Ehmeir"
+                "surname": "Ehmeir",
+                "sex": "M"
             },
             {
                 "username": "KonstantinFrank01",
                 "firstname": "Konstantin",
-                "surname": "Frank"
+                "surname": "Frank",
+                "sex": "M"
             },
             {
                 "username": "lorenzgruber",
                 "firstname": "Lorenz",
-                "surname": "Gruber"
+                "surname": "Gruber",
+                "sex": "M"
             },
             {
                 "username": "evahildenbrand",
                 "firstname": "Eva",
-                "surname": "Hildenbrand"
+                "surname": "Hildenbrand",
+                "sex": "W"
             },
             {
                 "username": "ninaholzinger",
                 "firstname": "Nina",
-                "surname": "Holzinger"
+                "surname": "Holzinger",
+                "sex": "W"
             },
             {
                 "username": "simonittensammer",
                 "firstname": "Simon",
-                "surname": "Ittensammer"
+                "surname": "Ittensammer",
+                "sex": "M"
             },
             {
                 "username": "milicmaria",
                 "firstname": "Maria",
-                "surname": "Milic"
+                "surname": "Milic",
+                "sex": "W"
             },
             {
                 "username": "irfanmuratspahic",
                 "firstname": "Irfan",
-                "surname": "Muratspahic"
+                "surname": "Muratspahic",
+                "sex": "M"
             },
             {
                 "username": "julinad",
                 "firstname": "Juliane",
-                "surname": "Naderer"
+                "surname": "Naderer",
+                "sex": "W"
             },
             {
                 "username": "schauflinger",
                 "firstname": "Hanna",
-                "surname": "Schauflinger"
+                "surname": "Schauflinger",
+                "sex": "W"
             },
             {
                 "username": "florianschickmair",
                 "firstname": "Florian",
-                "surname": "Schickmair"
+                "surname": "Schickmair",
+                "sex": "M"
             },
             {
                 "username": "SchubertSebastian",
                 "firstname": "Sebastian",
-                "surname": "Schubert"
+                "surname": "Schubert",
+                "sex": "M"
             },
             {
                 "username": "tealeon",
                 "firstname": "Leon",
-                "surname": "Tea"
+                "surname": "Tea",
+                "sex": "M"
             },
             {
                 "username": "schirinturko",
                 "firstname": "Schirin",
-                "surname": "Turko"
+                "surname": "Turko",
+                "sex": "W"
             },
             {
                 "username": "simonZweimueller",
                 "firstname": "Simon",
-                "surname": "Zweimüller"
+                "surname": "Zweimüller",
+                "sex": "M"
             }
         ]
     }
