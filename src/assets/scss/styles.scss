@@ -11,8 +11,8 @@
   cursor: pointer;
 }
 
-.chip-list > *:not(:first-child) {
-  margin-left: 1rem;
+.chip-list > * {
+  margin: 4px;
 }
 
 .chip {
