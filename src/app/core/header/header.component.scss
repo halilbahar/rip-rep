@@ -1,0 +1,7 @@
+@import '../../../assets/scss/variables.scss';
+
+:host {
+  height: $header-height;
+  background-color: $theme-dark;
+  display: block;
+}
