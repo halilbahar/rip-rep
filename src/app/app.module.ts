@@ -15,6 +15,7 @@ import { ChartTopFiveComponent } from './shared/components/charts/chart-top-five
 import { AuthenticationService } from './core/services/authentication.service';
 import { ChartTotalCommitsWeeklyComponent } from './shared/components/charts/chart-total-commits-weekly/chart-total-commits-weekly.component';
 import { ChartTotalCommitsMonthlyComponent } from './shared/components/charts/chart-total-commits-monthly/chart-total-commits-monthly.component';
+import { ChartAverageCommitsDailyComponent } from './shared/components/charts/chart-average-commits-daily/chart-average-commits-daily.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ChartTotalCommitsMonthlyComponent } from './shared/components/charts/ch
     FooterComponent,
     ChartTopFiveComponent,
     ChartTotalCommitsWeeklyComponent,
-    ChartTotalCommitsMonthlyComponent
+    ChartTotalCommitsMonthlyComponent,
+    ChartAverageCommitsDailyComponent
   ],
   imports: [
     BrowserModule,
