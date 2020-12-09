@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    // So the component can shrink
     min-height: 0;
     min-width: 0;
   }

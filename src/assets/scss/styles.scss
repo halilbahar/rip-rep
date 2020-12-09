@@ -34,4 +34,7 @@
   display: block;
   position: relative;
   flex: 1;
+  // So the wrapper can shrink
+  min-width: 0;
+  min-height: 0;
 }
