@@ -33,7 +33,7 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
         for (const day of week.contributionDays) {
           const dayIndex = new Date(day.date).getDay();
           contributionsPerWeekday[dayIndex] += day.contributionCount;
-          weekDayCounter[dayIndex] ++;
+          weekDayCounter[dayIndex]++;
         }
       }
     }
