@@ -3,5 +3,41 @@
 :host {
   height: $header-height;
   background-color: $theme-dark;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+}
+
+.logo {
+  position: relative;
+  font-size: 2.5vh;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo > img {
+  height: 65%;
+  margin-bottom: 5%;
+  margin-right: 4%;
+}
+
+.logo > span {
+  color: $theme-accent;
+}
+
+.requests {
+  position: relative;
+  right: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8vh;
+}
+
+.requests > span {
+  font-weight: bold;
+  font-size: 2vh;
 }
