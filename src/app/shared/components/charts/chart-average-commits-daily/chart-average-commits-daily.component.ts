@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserQuery} from '../../../models/user-query.model';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
+import {ColorGeneratorService} from '../../../../core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-average-commits-daily',
@@ -12,21 +13,24 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
 
   @Input() userQueries: UserQuery[];
 
-  pieChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
+  pieChartOptions: ChartOptions = {responsive: true, maintainAspectRatio: false};
   pieChartLabels: Label[] = [];
   pieChartType: ChartType = 'doughnut';
   pieChartLegend = true;
   pieChartData: ChartDataSets[] = [];
-  pieChartColor: Color[] = [{
-    backgroundColor: ['#CC859A', '#EECAB6', '#F7E1C9', '#B1C294', '#9EAEB2', '#cc85bf', '#9e85cc']
-  }];
+  pieChartColor: Color[];
 
-  constructor() { }
+  constructor(private colorgen: ColorGeneratorService) {
+  }
 
   ngOnInit(): void {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const contributionsPerWeekday = [0, 0, 0, 0, 0, 0, 0];
     const weekDayCounter = [0, 0, 0, 0, 0, 0, 0];
+
+    this.pieChartColor = [{
+      backgroundColor: this.colorgen.getColor(7)
+    }];
 
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;

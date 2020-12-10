@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import {Color, Label} from 'ng2-charts';
 import { UserQuery } from 'src/app/shared/models/user-query.model';
+import {ColorGeneratorService} from '../../../../core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-total-commits-weekly',
@@ -17,13 +18,18 @@ export class ChartTotalCommitsWeeklyComponent implements OnInit {
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
+  pieChartColor: Color[];
 
-  constructor() { }
+  constructor(private colorgen: ColorGeneratorService) { }
 
   ngOnInit(): void {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let firstDay = 0;
     const dailyContributions = [0, 0, 0, 0, 0, 0, 0];
+
+    this.pieChartColor = [{
+      backgroundColor: this.colorgen.getColor(7)
+    }];
 
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
