@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
-import { UserQuery } from 'src/app/shared/models/user-query.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {Color, Label} from 'ng2-charts';
+import {UserQuery} from 'src/app/shared/models/user-query.model';
+import {ColorGeneratorService} from '../../../../core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-top-five',
@@ -14,16 +15,22 @@ export class ChartTopFiveComponent implements OnInit {
   @Input() days: number;
   @Input('label-title') title: string;
 
-  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
+  barChartOptions: ChartOptions = {responsive: true, maintainAspectRatio: false};
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'horizontalBar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
+  pieChartColor: Color[];
 
-  constructor() { }
+  constructor(private colorgen: ColorGeneratorService) {
+  }
 
   ngOnInit(): void {
     type LastWeeksUserContribution = { username: string, lastWeeksContribution: number };
+
+    this.pieChartColor = [{
+      backgroundColor: this.colorgen.getColor(5)
+    }];
 
     const users: LastWeeksUserContribution[] = [];
     for (const query of this.userQueries) {
@@ -36,7 +43,9 @@ export class ChartTopFiveComponent implements OnInit {
       let count = 0;
       for (const week of reversedWeeks) {
         for (const day of week.contributionDays) {
-          if (count === this.days) { break }
+          if (count === this.days) {
+            break;
+          }
           lastWeeksContributionCount += day.contributionCount;
           count++;
         }

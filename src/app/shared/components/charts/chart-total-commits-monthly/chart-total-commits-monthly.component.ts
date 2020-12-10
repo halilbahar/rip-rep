@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Label } from 'ng2-charts';
-import { UserQuery } from 'src/app/shared/models/user-query.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
+import {Color, Label} from 'ng2-charts';
+import {UserQuery} from 'src/app/shared/models/user-query.model';
+import {ColorGeneratorService} from '../../../../core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-total-commits-monthly',
@@ -12,13 +13,16 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
 
   @Input() userQueries: UserQuery[];
 
-  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
+  barChartOptions: ChartOptions = {responsive: true, maintainAspectRatio: false};
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
+  pieChartColor: Color[];
 
-  constructor() { }
+
+  constructor(private colorgen: ColorGeneratorService) {
+  }
 
   ngOnInit(): void {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -30,6 +34,10 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
     // [1] -> march
     // [11] -> june
     const monthlyContributions: number[] = [];
+
+    this.pieChartColor = [{
+      backgroundColor: this.colorgen.getColor(12)
+    }];
 
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
