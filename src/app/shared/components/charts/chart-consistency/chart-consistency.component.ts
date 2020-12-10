@@ -45,8 +45,6 @@ export class ChartConsistencyComponent implements OnInit {
           if (daysPassed === this.days) {
             break;
           }
-          if (query.user.login === 'halilbahar') {
-          }
           if (day.contributionCount > 0) {
             daysCommited++;
           }
