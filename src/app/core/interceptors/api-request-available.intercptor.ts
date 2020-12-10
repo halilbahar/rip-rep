@@ -20,8 +20,8 @@ export class ApiRequestAvaiableInterceptor implements HttpInterceptor {
           const reset = +event.headers.get('X-RateLimit-Reset')!;
 
           this.avaiableApiPointsService.availablePoints.next(limit);
-          this.avaiableApiPointsService.usedPoints.next(reset);
-          this.avaiableApiPointsService.resetTimeStamp.next(remaining * 1000);
+          this.avaiableApiPointsService.remainingPoints.next(remaining);
+          this.avaiableApiPointsService.resetTimeStamp.next(reset);
         }
       })
     );
