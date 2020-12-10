@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "rip-rep"
+  "defaultProject": "rip-rep",
+  "cli": {
+    "analytics": false
+  }
 }
