@@ -52,7 +52,7 @@ export class ChartConsistencyComponent implements OnInit {
         }
       }
 
-      const consistency = (daysCommited / daysPassed * 100).toFixed(2);
+      const consistency = +(daysCommited / daysPassed * 100).toFixed(2);
 
       users.push({
         username: query.user.login,

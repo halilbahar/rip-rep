@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class ColorGeneratorService {
   constructor() {
   }
 
-  getColor(amount): string[] {
+  getColor(amount: number): string[] {
     const colors = [];
 
     for (let i = 0; i < amount; i++) {
