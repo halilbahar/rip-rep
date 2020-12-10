@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivationEnd, NavigationEnd, Params, Router} from '@angular/router';
 import {Breadcrumb} from '../../shared/models/breadcrumb.model';
+import { AvaiableApiPointsService } from '../services/avaiable-api-points.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   breadcrumbs: Breadcrumb[] = [];
 
   constructor(
-    private router: Router
+    private router: Router,
+    public avaiableApiPointsService: AvaiableApiPointsService
   ) { }
 
   ngOnInit(): void {
