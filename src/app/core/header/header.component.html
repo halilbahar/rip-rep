@@ -18,10 +18,10 @@
 </div>
 
 <div
-  class="requests"
+  class="points"
   *ngIf="avaiableApiPointsService.remainingPoints.value !== -1"
 >
-  Requests:&nbsp;<span>
+  Points:&nbsp;<span>
     {{ avaiableApiPointsService.remainingPoints | async }} /
     {{ avaiableApiPointsService.availablePoints | async }}
   </span>
