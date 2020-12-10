@@ -15,6 +15,9 @@ jobs:
           run: npm ci
         - name: Build
           run: npm run build:prod
+        - name: Copy index to 404
+          working-directory: dist/rip-rep
+          run: cp index.html 404.html
         - name: Deploy 🚀
           uses: JamesIves/github-pages-deploy-action@3.7.1
           with:
