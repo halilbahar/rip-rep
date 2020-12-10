@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
-import { UserQuery } from 'src/app/shared/models/user-query.model';
-import { ColorGeneratorService } from '../../../../core/services/color-generator.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {Color, Label} from 'ng2-charts';
+import {UserQuery} from 'src/app/shared/models/user-query.model';
+import {ColorGeneratorService} from '../../../../core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-top-five',
@@ -15,7 +15,7 @@ export class ChartTopFiveComponent implements OnInit {
   @Input() days: number;
   @Input('label-title') title: string;
 
-  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
+  barChartOptions: ChartOptions = {responsive: true, maintainAspectRatio: false};
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'horizontalBar';
   barChartLegend = true;
@@ -24,7 +24,8 @@ export class ChartTopFiveComponent implements OnInit {
 
   constructor(
     private colorGeneratorService: ColorGeneratorService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     type LastWeeksUserContribution = { username: string, lastWeeksContribution: number };
@@ -60,7 +61,8 @@ export class ChartTopFiveComponent implements OnInit {
 
     // Get top 5
     users.sort((a, b) => b.lastWeeksContribution - a.lastWeeksContribution);
-    const topFiveUsers = users.slice(0, 5);
+    console.log(this.days + ':', [...users]);
+    const topFiveUsers = users.splice(0, 5);
 
     // Fill labels and data
     topFiveUsers.forEach(user => this.barChartLabels.push(user.username));
