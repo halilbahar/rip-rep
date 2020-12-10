@@ -22,6 +22,16 @@ export class ColorGeneratorService {
     return colors;
   }
 
+  getSameColor(amount: number): string[] {
+    const color = this.hsl2hex(
+      Math.round(Math.random() * 360),
+      Math.round(80 - Math.random() * 10) / 100,
+      Math.round(90 - Math.random() * 10) / 100
+    );
+
+    return Array(amount).fill(color);
+  }
+
   // code derived from https://stackoverflow.com/questions/36721830/convert-hsl-to-rgb-and-hex
   private hsl2hex(h: number, s: number, l: number): string {
     const a = s * Math.min(l, 1 - l);
