@@ -12,7 +12,15 @@ export class ChartConsistencyComponent implements OnInit {
 
   @Input() userQueries: UserQuery[];
 
-  barChartOptions: ChartOptions = {responsive: true, maintainAspectRatio: false};
+  barChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    tooltips: {
+      callbacks: {
+        label: (item) => `${item.yLabel} %`
+      }
+    }
+  };
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
