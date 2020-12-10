@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserQuery} from '../../../models/user-query.model';
-import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
-import {Label} from 'ng2-charts';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserQuery } from '../../../models/user-query.model';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+import { ColorGeneratorService } from 'src/app/core/services/color-generator.service';
 
 @Component({
   selector: 'app-chart-consistency',
@@ -25,15 +26,21 @@ export class ChartConsistencyComponent implements OnInit {
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
+  barChartColors: Color[] = [];
 
   days = 30;
 
-  constructor() {
-  }
+  constructor(
+    private colorGeneratorService: ColorGeneratorService
+  ) { }
 
   ngOnInit(): void {
     type UserConsistency = { username: string, consistency: number };
     const users: UserConsistency[] = [];
+
+    this.barChartColors.push({
+      backgroundColor: this.colorGeneratorService.getSameColor(5)
+    });
 
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
