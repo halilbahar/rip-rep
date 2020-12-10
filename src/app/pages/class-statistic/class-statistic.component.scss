@@ -1,8 +1,12 @@
+$grid-padding: 1rem;
+$grid-after-height: $grid-padding / 6;
+
 .statistic-grid {
   height: 100%;
-  padding: 1rem;
+  padding: $grid-padding;
   display: grid;
   gap: 1rem;
+  overflow-y: scroll;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -17,5 +21,38 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .statistic-grid {
+    padding-bottom: 10rem;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    & > * {
+      min-height: 300px;
+    }
+
+    &::after {
+      content: "";
+      height: $grid-after-height;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .statistic-grid {
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+
+    & > * {
+      min-height: 400px;
+    }
+
+    &::after {
+      content: "";
+      height: $grid-after-height;
+    }
   }
 }
