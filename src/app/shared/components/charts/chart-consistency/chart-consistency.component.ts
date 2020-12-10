@@ -20,6 +20,13 @@ export class ChartConsistencyComponent implements OnInit {
       callbacks: {
         label: (item) => `${item.yLabel} %`
       }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
     }
   };
   barChartLabels: Label[] = [];
@@ -46,15 +53,18 @@ export class ChartConsistencyComponent implements OnInit {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
       let daysPassed = 0;
       let daysCommited = 0;
+      const reversedWeeks = [...weeks].reverse();
 
-      for (const week of weeks) {
+      for (const week of reversedWeeks) {
         for (const day of week.contributionDays) {
           if (daysPassed === this.days) {
             break;
           }
+
           if (day.contributionCount > 0) {
             daysCommited++;
           }
+
           daysPassed++;
         }
       }
