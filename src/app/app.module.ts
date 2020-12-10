@@ -17,6 +17,7 @@ import { ChartTotalCommitsWeeklyComponent } from './shared/components/charts/cha
 import { ChartTotalCommitsMonthlyComponent } from './shared/components/charts/chart-total-commits-monthly/chart-total-commits-monthly.component';
 import { HeaderComponent } from './core/header/header.component';
 import { ChartAverageCommitsDailyComponent } from './shared/components/charts/chart-average-commits-daily/chart-average-commits-daily.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ChartAverageCommitsDailyComponent } from './shared/components/charts/ch
     AppRoutingModule,
     HttpClientModule,
     GraphQLModule,
-    ChartsModule
+    ChartsModule,
+    CoreModule
   ],
   providers: [
     {
