@@ -2,7 +2,8 @@ name: Continuous Delivery
 
 on:
   push:
-    branches: [ master ]
+    tags:        
+      - '*'
 
 jobs:
   build-and-deploy:
