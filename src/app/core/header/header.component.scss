@@ -1,4 +1,4 @@
-@import '../../../assets/scss/variables.scss';
+@import "../../../assets/scss/variables.scss";
 
 :host {
   height: $header-height;
@@ -32,12 +32,17 @@
   position: relative;
   right: 2.5%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   font-size: 1.8vh;
-}
 
-.points > span {
-  font-weight: bold;
-  font-size: 2vh;
+  & > span {
+    font-weight: bold;
+    font-size: 2vh;
+  }
+
+  .count-down {
+    font-size: 65%;
+    text-align: right;
+  }
 }

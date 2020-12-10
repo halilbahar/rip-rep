@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivationEnd, NavigationEnd, Params, Router} from '@angular/router';
-import {Breadcrumb} from '../../shared/models/breadcrumb.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivationEnd, NavigationEnd, Params, Router } from '@angular/router';
+import { Breadcrumb } from '../../shared/models/breadcrumb.model';
 import { AvaiableApiPointsService } from '../services/avaiable-api-points.service';
 
 @Component({
@@ -11,6 +11,9 @@ import { AvaiableApiPointsService } from '../services/avaiable-api-points.servic
 export class HeaderComponent implements OnInit {
 
   breadcrumbs: Breadcrumb[] = [];
+  remainingTime: string = '';
+  private remainingMilliseconds: number = -1;
+  private interval: NodeJS.Timeout;
 
   constructor(
     private router: Router,
@@ -18,6 +21,39 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.avaiableApiPointsService.resetTimeStamp.subscribe(timeStamp => {
+      // Ignore the first value of the behaviour subject
+      if (timeStamp === -1) { return; }
+      // Clear the interval if a new date is present
+      if (this.interval != null) {
+        clearInterval(this.interval);
+      }
+
+      const resetDate = new Date(timeStamp * 1000);
+      this.interval = setInterval(() => {
+        const now = new Date();
+        this.remainingMilliseconds = resetDate.getTime() - now.getTime();
+
+        const removeTrail = function (value: number) {
+          let valueString;
+          if (value < 10) {
+            valueString = "0" + value;
+          }
+          return (valueString || value).toString().split(".")[0];
+        }
+
+        let seconds = (this.remainingMilliseconds / 1000) % 60;
+        let minutes = (this.remainingMilliseconds / (1000 * 60)) % 60;
+        const minutesString = removeTrail(minutes);
+        const secondsString = removeTrail(seconds);
+        this.remainingTime = minutesString + ":" + secondsString;
+
+        if (this.remainingMilliseconds < 0) {
+          clearInterval(this.interval);
+        }
+      }, 1000);
+    });
+
     let segments: { path: string; params: Params, usePathParamAsTitle: boolean }[] = [];
 
     this.router.events.subscribe(event => {
@@ -58,7 +94,7 @@ export class HeaderComponent implements OnInit {
           const title = segment.usePathParamAsTitle ? pathParamValues.join(' ') : path.replace(/\/:\w+/, '');
 
           link += `/${path}`;
-          breadcrumbs.push({link, title});
+          breadcrumbs.push({ link, title });
         }
 
         this.breadcrumbs = breadcrumbs;
@@ -66,5 +102,4 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-
 }

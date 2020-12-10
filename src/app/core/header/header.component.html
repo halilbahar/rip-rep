@@ -21,8 +21,11 @@
   class="points"
   *ngIf="avaiableApiPointsService.remainingPoints.value !== -1"
 >
-  Points:&nbsp;<span>
+  <span>
     {{ avaiableApiPointsService.remainingPoints | async }} /
     {{ avaiableApiPointsService.availablePoints | async }}
+  </span>
+  <span class="count-down">
+    {{ remainingTime }}
   </span>
 </div>
