@@ -29,6 +29,7 @@ export class ColorGeneratorService {
     return colors;
   }
 
+  // code derived from https://stackoverflow.com/questions/36721830/convert-hsl-to-rgb-and-hex
   private hsl2hex(h: number, s: number, l: number): string {
     console.log(`${h},${s},${l}`);
     const a = s * Math.min(l, 1 - l);
