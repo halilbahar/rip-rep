@@ -1,9 +1,9 @@
 .statistic-grid {
   height: 100%;
-  padding: 10px;
+  padding: 1rem;
   display: grid;
   gap: 1rem;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 
   & > * {
@@ -13,5 +13,9 @@
     // So the component can shrink
     min-height: 0;
     min-width: 0;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 1rem;
   }
 }

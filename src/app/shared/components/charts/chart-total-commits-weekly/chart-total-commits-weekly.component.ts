@@ -18,7 +18,7 @@ export class ChartTotalCommitsWeeklyComponent implements OnInit {
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartData: ChartDataSets[] = [];
-  pieChartColor: Color[];
+  barChartColor: Color[];
 
   constructor(private colorgen: ColorGeneratorService) { }
 
@@ -27,8 +27,8 @@ export class ChartTotalCommitsWeeklyComponent implements OnInit {
     let firstDay = 0;
     const dailyContributions = [0, 0, 0, 0, 0, 0, 0];
 
-    this.pieChartColor = [{
-      backgroundColor: this.colorgen.getColor(7)
+    this.barChartColor = [{
+      backgroundColor: this.colorgen.getSameColor(7)
     }];
 
     for (const query of this.userQueries) {
