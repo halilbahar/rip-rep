@@ -1,0 +1,130 @@
+[
+    {
+        "name": "A",
+        "year": 5,
+        "department": "HITM",
+        "students": [
+            {
+                "username": "laraaigner",
+                "firstname": "Lara",
+                "surname": "Aigner",
+                "sex": "W"
+            },
+            {
+                "username": "davidandraschko",
+                "firstname": "David",
+                "surname": "Andraschko",
+                "sex": "M",
+                "nickname": "Andraschenkovic"
+            },
+            {
+                "username": "halilbahar",
+                "firstname": "Halil",
+                "surname": "Bahar",
+                "sex": "M"
+            },
+            {
+                "username": "sonjacao",
+                "firstname": "Sonja",
+                "surname": "Cao",
+                "sex": "W"
+            },
+            {
+                "username": "donnabauerc",
+                "firstname": "Christian",
+                "surname": "Donnabauer",
+                "sex": "M"
+            },
+            {
+                "username": "franziskusehmeir",
+                "firstname": "Franziskus",
+                "surname": "Ehmeir",
+                "sex": "M"
+            },
+            {
+                "username": "KonstantinFrank01",
+                "firstname": "Konstantin",
+                "surname": "Frank",
+                "sex": "M"
+            },
+            {
+                "username": "lorenzgruber",
+                "firstname": "Lorenz",
+                "surname": "Gruber",
+                "sex": "M"
+            },
+            {
+                "username": "evahildenbrand",
+                "firstname": "Eva",
+                "surname": "Hildenbrand",
+                "sex": "W"
+            },
+            {
+                "username": "ninaholzinger",
+                "firstname": "Nina",
+                "surname": "Holzinger",
+                "sex": "W"
+            },
+            {
+                "username": "simonittensammer",
+                "firstname": "Simon",
+                "surname": "Ittensammer",
+                "sex": "M"
+            },
+            {
+                "username": "milicmaria",
+                "firstname": "Maria",
+                "surname": "Milic",
+                "sex": "W"
+            },
+            {
+                "username": "irfanmuratspahic",
+                "firstname": "Irfan",
+                "surname": "Muratspahic",
+                "sex": "M"
+            },
+            {
+                "username": "julinad",
+                "firstname": "Juliane",
+                "surname": "Naderer",
+                "sex": "W"
+            },
+            {
+                "username": "schauflinger",
+                "firstname": "Hanna",
+                "surname": "Schauflinger",
+                "sex": "W"
+            },
+            {
+                "username": "florianschickmair",
+                "firstname": "Florian",
+                "surname": "Schickmair",
+                "sex": "M"
+            },
+            {
+                "username": "SchubertSebastian",
+                "firstname": "Sebastian",
+                "surname": "Schubert",
+                "sex": "M"
+            },
+            {
+                "username": "tealeon",
+                "firstname": "Leon",
+                "surname": "Tea",
+                "sex": "M"
+            },
+            {
+                "username": "schirinturko",
+                "firstname": "Schirin",
+                "surname": "Turko",
+                "sex": "W"
+            },
+            {
+                "username": "simonZweimueller",
+                "firstname": "Simon",
+                "surname": "Zweimüller",
+                "sex": "M"
+            }
+        ]
+    }
+]
