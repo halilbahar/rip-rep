@@ -37,25 +37,24 @@ export class ChartConsistencyComponent implements OnInit {
 
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
-      let count = 0;
+      let daysPassed = 0;
       let daysCommited = 0;
 
       for (const week of weeks) {
         for (const day of week.contributionDays) {
-          if (count === this.days) {
+          if (daysPassed === this.days) {
             break;
           }
           if (query.user.login === 'halilbahar') {
-            console.log(day.contributionCount);
           }
           if (day.contributionCount > 0) {
             daysCommited++;
           }
-          count++;
+          daysPassed++;
         }
       }
 
-      const consistency = (daysCommited / count * 100).toFixed(2);
+      const consistency = (daysCommited / daysPassed * 100).toFixed(2);
 
       users.push({
         username: query.user.login,
