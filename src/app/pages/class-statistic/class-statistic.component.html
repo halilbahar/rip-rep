@@ -9,7 +9,9 @@
     [days]="30"
     label-title="month"
   ></app-chart-top-five>
-  <div style="background-color: red"></div>
+  <app-chart-consistency
+    [userQueries]="userQueries"
+  ></app-chart-consistency>
 
   <app-chart-total-commits-weekly
     [userQueries]="userQueries"
