@@ -1,8 +1,10 @@
-<div *ngFor="let class of classes" class="card pointer">
-  {{ class.year + class.name + class.department }}
+<div *ngFor="let clazz of classes" class="card">
+  <span class="pointer" [routerLink]="['class', clazz.year + clazz.name + clazz.department]">
+    {{ clazz.year + clazz.name + clazz.department }}
+  </span>
 
   <div class="chip-list">
-    <div *ngFor="let student of class.students" class="chip">
+    <div *ngFor="let student of clazz.students" class="chip">
       {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
     </div>
   </div>
