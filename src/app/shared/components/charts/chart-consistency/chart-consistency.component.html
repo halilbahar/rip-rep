@@ -1,1 +1,13 @@
-<p>chart-consistency works!</p>
+<div class="chart-title">Top 5 most consistent commiters</div>
+
+<div class="chart-wrapper">
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+  >
+  </canvas>
+</div>
