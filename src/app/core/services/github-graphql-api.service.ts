@@ -27,6 +27,7 @@ export class GithubGraphqlApiService {
                 contributionDays {
                   contributionCount
                   date
+                  weekday
                 }
               }
             }

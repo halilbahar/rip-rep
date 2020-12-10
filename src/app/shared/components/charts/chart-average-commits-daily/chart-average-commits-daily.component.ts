@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserQuery} from '../../../models/user-query.model';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
-import {Label} from 'ng2-charts';
+import {Color, Label} from 'ng2-charts';
 
 @Component({
   selector: 'app-chart-average-commits-daily',
@@ -12,11 +12,14 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
 
   @Input() userQueries: UserQuery[];
 
-  barChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
-  barChartLabels: Label[] = [];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartData: ChartDataSets[] = [];
+  pieChartOptions: ChartOptions = { responsive: true, maintainAspectRatio: false };
+  pieChartLabels: Label[] = [];
+  pieChartType: ChartType = 'doughnut';
+  pieChartLegend = true;
+  pieChartData: ChartDataSets[] = [];
+  pieChartColor: Color[] = [{
+    backgroundColor: ['#CC859A', '#EECAB6', '#F7E1C9', '#B1C294', '#9EAEB2', '#cc85bf', '#9e85cc']
+  }];
 
   constructor() { }
 
@@ -31,7 +34,7 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
       // counting the total amount of contributions per weekday and counting how many of each weekday there are
       for (const week of weeks) {
         for (const day of week.contributionDays) {
-          const dayIndex = new Date(day.date).getDay();
+          const dayIndex = day.weekday;
           contributionsPerWeekday[dayIndex] += day.contributionCount;
           weekDayCounter[dayIndex]++;
         }
@@ -49,8 +52,8 @@ export class ChartAverageCommitsDailyComponent implements OnInit {
     days.push(days.shift()!);
     averageContributions.push(averageContributions.shift());
 
-    this.barChartLabels.push(...days);
-    this.barChartData.push({
+    this.pieChartLabels.push(...days);
+    this.pieChartData.push({
       data: averageContributions,
       label: 'Commits'
     });

@@ -23,4 +23,5 @@ interface ContributionCalendarWeek {
 interface ContributionCalendarDay {
     contributionCount: number;
     date: string;
+    weekday: number;
 }
