@@ -24,7 +24,8 @@ export class ChartConsistencyComponent implements OnInit {
     scales: {
       yAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: true,
+          max: 100
         }
       }]
     }
