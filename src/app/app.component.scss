@@ -9,7 +9,7 @@
   display: table;
   height: $router-outlet-height;
   width: 100%;
-  padding: $header-height 0 $footer-height 0;
+  margin: $header-height 0 $footer-height 0;
 }
 
 ::ng-deep router-outlet + * {
