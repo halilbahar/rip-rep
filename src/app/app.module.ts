@@ -20,6 +20,7 @@ import { ChartAverageCommitsDailyComponent } from './shared/components/charts/ch
 import { CoreModule } from './core/core.module';
 import { ChartConsistencyComponent } from './shared/components/charts/chart-consistency/chart-consistency.component';
 import { ChartAllCommitsComponent } from './shared/components/charts/chart-all-commits/chart-all-commits.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ChartAllCommitsComponent } from './shared/components/charts/chart-all-c
     HttpClientModule,
     GraphQLModule,
     ChartsModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [
     {
