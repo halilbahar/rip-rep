@@ -3,9 +3,14 @@
 $grid-padding: 1rem;
 $grid-after-height: $grid-padding / 6;
 
-.overall-statistic, .statistic-grid {
+.wrapper > * {
   min-height: $router-outlet-height;
-  height: 100%;
+}
+
+.overall-statistic {
+  height: 0;
+  width: 0;
+  min-width: 100%;
 }
 
 .statistic-grid {
@@ -14,19 +19,28 @@ $grid-after-height: $grid-padding / 6;
   gap: 1rem;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+}
 
-  & > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // So the component can shrink
-    min-height: 0;
-    min-width: 0;
-    background-color: #fafafa;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 1rem;
-  }
+.base-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  // So the component can shrink
+  min-height: 0;
+  min-width: 0;
+}
+
+.grid-chart {
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.overall-statistic-chart {
+  padding: 1rem 3rem;
 }
 
 @media only screen and (max-width: 1000px) {
