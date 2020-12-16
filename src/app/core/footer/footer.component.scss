@@ -4,11 +4,14 @@
   height: $footer-height;
   padding: $footer-height * 0.4;
   background-color: $theme-dark;
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.5vh;
   color: white;
+  width: 100%;
+  bottom: 0;
 }
 
 p {
