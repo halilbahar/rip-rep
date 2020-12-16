@@ -11,6 +11,7 @@
   width: 100%;
   top: 0;
   z-index: 1;
+  padding: 0 1rem;
 }
 
 .logo {
@@ -18,7 +19,6 @@
   font-size: 2.5vh;
   font-weight: bold;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -34,7 +34,6 @@
 
 .points {
   position: relative;
-  right: 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
