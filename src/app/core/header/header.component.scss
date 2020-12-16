@@ -3,10 +3,14 @@
 :host {
   height: $header-height;
   background-color: $theme-dark;
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   color: white;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 }
 
 .logo {

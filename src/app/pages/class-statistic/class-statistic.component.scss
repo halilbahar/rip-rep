@@ -1,37 +1,50 @@
+@import "../../../assets/scss/variables";
+
 $grid-padding: 1rem;
 $grid-after-height: $grid-padding / 6;
+
+.wrapper > * {
+  min-height: $router-outlet-height;
+}
+
+.overall-statistic {
+  height: 0;
+  width: 0;
+  min-width: 100%;
+}
 
 .statistic-grid {
   padding: $grid-padding;
   display: grid;
   gap: 1rem;
-  flex: 1 1 auto;
-  // The unit fr needs the height so it can be calculated
-  // With setting it to 1px the browser forces the height to be the flex-grow: 1
-  // Now the height is equal to the size of the flexbox and can use 1fr
-  // The height needs to be set to 100% in the media queries so the container can scall as the page gets longer
-  // Otherwise it will overflow and the footer won't move
-  height: 1px;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+}
 
-  & > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // So the component can shrink
-    min-height: 0;
-    min-width: 0;
-    background-color: #fafafa;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 1rem;
-  }
+.base-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  // So the component can shrink
+  min-height: 0;
+  min-width: 0;
+}
+
+.grid-chart {
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.overall-statistic-chart {
+  padding: 1rem 3rem;
 }
 
 @media only screen and (max-width: 1000px) {
   .statistic-grid {
-    height: 100%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 
@@ -43,7 +56,6 @@ $grid-after-height: $grid-padding / 6;
 
 @media only screen and (max-width: 750px) {
   .statistic-grid {
-    height: 100%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr;
 
