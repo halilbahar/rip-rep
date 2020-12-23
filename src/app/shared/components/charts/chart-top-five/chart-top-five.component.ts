@@ -48,9 +48,6 @@ export class ChartTopFiveComponent implements OnInit {
           if (count === this.days) {
             break;
           }
-          if (query.user.login === 'halilbahar') {
-            console.log(day);
-          }
           lastWeeksContributionCount += day.contributionCount;
           count++;
         }
