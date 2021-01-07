@@ -50,7 +50,7 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
           const currentMonthIndex = new Date(day.date).getMonth();
 
           // First itteration, get the intial month
-          if (!monthIndex) {
+          if (monthIndex == null) {
             monthIndex = currentMonthIndex;
             firstMonthIndex = monthIndex;
           }
