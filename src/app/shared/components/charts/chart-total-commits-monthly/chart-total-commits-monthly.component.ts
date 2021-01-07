@@ -77,7 +77,7 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
       currentMonthIndex--;
 
       if (currentMonthIndex < 0) {
-        currentMonthIndex = months.length;
+        currentMonthIndex = months.length - 1;
       }
     }
     monthLabel.reverse();
