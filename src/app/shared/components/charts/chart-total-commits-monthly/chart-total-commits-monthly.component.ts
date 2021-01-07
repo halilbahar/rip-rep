@@ -43,14 +43,19 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
       // Reverse the weeks so the beginning is this the current week
       const reversedWeeks = [...weeks].reverse();
+      let inFirstMonth = true;
 
       for (const week of reversedWeeks) {
         const reversedDays = [...week.contributionDays].reverse();
         for (const day of reversedDays) {
           const currentMonthIndex = new Date(day.date).getMonth();
 
+          if (currentMonthIndex === firstMonthIndex && !inFirstMonth) {
+            break;
+          }
+
           // First itteration, get the intial month
-          if (!monthIndex) {
+          if (monthIndex === null) {
             monthIndex = currentMonthIndex;
             firstMonthIndex = monthIndex;
           }
@@ -59,6 +64,10 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
           // If so change the index and count the contributions for the next month
           if (currentMonthIndex !== monthIndex) {
             monthIndex = currentMonthIndex;
+
+            if (inFirstMonth && monthIndex !== firstMonthIndex) {
+              inFirstMonth = false;
+            }
           }
 
           if (monthlyContributions[monthIndex] == null) {
@@ -77,10 +86,13 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
       currentMonthIndex--;
 
       if (currentMonthIndex < 0) {
-        currentMonthIndex = months.length;
+        currentMonthIndex = months.length - 1;
       }
     }
     monthLabel.reverse();
+
+    // shift first element to the end of the array
+    monthlyContributions.push(monthlyContributions.shift() as number);
 
     this.barChartLabels.push(...monthLabel);
     this.barChartData.push({
