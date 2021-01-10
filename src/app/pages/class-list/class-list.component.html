@@ -5,7 +5,9 @@
 
   <div class="chip-list">
     <div *ngFor="let student of clazz.students" class="chip pointer">
-      {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
+      <a target="_blank" href="https://github.com/{{student.username}}" class="user-link">
+        {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
+      </a>
     </div>
   </div>
 </div>
