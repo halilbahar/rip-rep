@@ -20,84 +20,98 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
   barChartData: ChartDataSets[] = [];
   barChartColor: Color[];
 
-  constructor(
-    private colorgen: ColorGeneratorService
-  ) { }
+  constructor(private colorgen: ColorGeneratorService) { }
 
   ngOnInit(): void {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-    let monthIndex = null;
-    let firstMonthIndex = -1;
-    // The first element will be the current month and the last element the month before. Everything goes in reverse
-    // [0] -> may
-    // [1] -> march
-    // [11] -> june
-    const monthlyContributions: number[] = [];
+    const now = new Date();
 
     this.barChartColor = [{
       backgroundColor: this.colorgen.getSameColor(12)
     }];
 
+    type UserContribution = { user: string, months: { month: number, contributions: number }[] };
+    const contributions: UserContribution[] = [];
+
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
-      // Reverse the weeks so the beginning is this the current week
       const reversedWeeks = [...weeks].reverse();
-      let inFirstMonth = true;
 
-      for (const week of reversedWeeks) {
+      let currentMonth: number | null = null;
+      let currentContributions = 0;
+      let currentUser: UserContribution = {
+        months: [],
+        user: query.user.login
+      };
+
+      week:
+      for (const [i, week] of reversedWeeks.entries()) {
         const reversedDays = [...week.contributionDays].reverse();
+        
         for (const day of reversedDays) {
-          const currentMonthIndex = new Date(day.date).getMonth();
+          const date = new Date(day.date);
+          const month = date.getMonth();
 
-          if (currentMonthIndex === firstMonthIndex && !inFirstMonth) {
-            break;
-          }
+          if (currentMonth == null) {
+            currentMonth = month;
+          } else if (currentMonth != month || i === reversedWeeks.length - 1) {
+            const tempMonth = currentMonth;
+            currentMonth = month;
 
-          // First itteration, get the intial month
-          if (monthIndex === null) {
-            monthIndex = currentMonthIndex;
-            firstMonthIndex = monthIndex;
-          }
+            const lastDayDate = new Date(date);
+            lastDayDate.setDate(date.getDate() - 1);
 
-          // Check every itteration if the month changed.
-          // If so change the index and count the contributions for the next month
-          if (currentMonthIndex !== monthIndex) {
-            monthIndex = currentMonthIndex;
 
-            if (inFirstMonth && monthIndex !== firstMonthIndex) {
-              inFirstMonth = false;
+            if (now.getFullYear() - 1 === lastDayDate.getFullYear() && now.getMonth() === currentMonth && now.getMonth() === tempMonth) {
+              continue week;
             }
+
+            currentUser.months.push({
+              month: tempMonth,
+              contributions: currentContributions
+            });
+            currentContributions = 0;
           }
 
-          if (monthlyContributions[monthIndex] == null) {
-            monthlyContributions[monthIndex] = day.contributionCount;
-          } else {
-            monthlyContributions[monthIndex] += day.contributionCount;
-          }
+          currentContributions += day.contributionCount;
         }
       }
+      if (currentUser.user === 'halilbahar') {
+        console.log(currentUser.months);
+
+      }
+      contributions.push(currentUser);
     }
 
-    let currentMonthIndex = firstMonthIndex;
-    const monthLabel: string[] = [];
-    for (let i = 0; i < 12; i++) {
-      monthLabel.push(months[currentMonthIndex]);
-      currentMonthIndex--;
 
-      if (currentMonthIndex < 0) {
-        currentMonthIndex = months.length - 1;
+
+    const monthlyContributions = contributions.flatMap(contribution => contribution.months);
+    const monthlyContributionsArray: number[] = [];
+    for (let i = 0; i < 12; i++) {
+      const currentContributions = monthlyContributions
+        .filter(contribution => contribution.month === i)
+        .map(contribution => contribution.contributions)
+        .reduce((current: number, value: number) => current + value, 0);
+
+      monthlyContributionsArray.push(currentContributions);
+    }
+
+    let currentMonth = new Date().getMonth();
+    const monthLabels: string[] = [];
+    for (let i = 0; i < 12; i++) {
+      monthLabels.push(months[currentMonth]);
+      currentMonth++;
+      if (currentMonth === 12) {
+        currentMonth = 0;
       }
     }
-    monthLabel.reverse();
 
-    // shift first element to the end of the array
-    monthlyContributions.push(monthlyContributions.shift() as number);
-
-    this.barChartLabels.push(...monthLabel);
+    monthLabels.push(monthLabels.shift() as string)
+    monthlyContributionsArray.push(monthlyContributionsArray.shift() as number)
+    this.barChartLabels.push(...monthLabels)
     this.barChartData.push({
-      data: monthlyContributions,
-      label: 'Commits'
+      data: monthlyContributionsArray,
+      label: "Commits"
     });
   }
 }
