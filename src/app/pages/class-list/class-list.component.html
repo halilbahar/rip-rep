@@ -4,10 +4,9 @@
   </h2>
 
   <div class="chip-list">
-    <div *ngFor="let student of clazz.students" class="chip pointer">
-      <a target="_blank" href="https://github.com/{{student.username}}" class="user-link">
-        {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
-      </a>
-    </div>
+    <a *ngFor="let student of clazz.students" class="chip pointer user-link" target="_blank"
+      href="https://github.com/{{student.username}}">
+      {{ student.nickname || student.firstname + " " + student.surname | titlecase }}
+    </a>
   </div>
 </div>
