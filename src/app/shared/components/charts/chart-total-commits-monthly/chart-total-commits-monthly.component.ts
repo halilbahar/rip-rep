@@ -33,6 +33,7 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
     type UserContribution = { user: string, months: { month: number, contributions: number }[] };
     const contributions: UserContribution[] = [];
 
+    user:
     for (const query of this.userQueries) {
       const weeks = query.user.contributionsCollection.contributionCalendar.weeks;
       const reversedWeeks = [...weeks].reverse();
@@ -44,59 +45,52 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
         user: query.user.login
       };
 
-      week:
       for (const [i, week] of reversedWeeks.entries()) {
         const reversedDays = [...week.contributionDays].reverse();
-        
+
         for (const day of reversedDays) {
           const date = new Date(day.date);
           const month = date.getMonth();
+          const lastDayDate = new Date(date);
+          lastDayDate.setDate(date.getDate() - 1);
 
           if (currentMonth == null) {
             currentMonth = month;
-          } else if (currentMonth != month || i === reversedWeeks.length - 1) {
+          } else if (currentMonth != month) {
             const tempMonth = currentMonth;
             currentMonth = month;
-
-            const lastDayDate = new Date(date);
-            lastDayDate.setDate(date.getDate() - 1);
-
-
-            if (now.getFullYear() - 1 === lastDayDate.getFullYear() && now.getMonth() === currentMonth && now.getMonth() === tempMonth) {
-              continue week;
-            }
 
             currentUser.months.push({
               month: tempMonth,
               contributions: currentContributions
             });
             currentContributions = 0;
+          } else if (now.getFullYear() - 1 === lastDayDate.getFullYear() && now.getMonth() === currentMonth) {
+            contributions.push(currentUser);
+            continue user;
           }
 
           currentContributions += day.contributionCount;
         }
       }
-      if (currentUser.user === 'halilbahar') {
-        console.log(currentUser.months);
-
-      }
-      contributions.push(currentUser);
     }
-
-
 
     const monthlyContributions = contributions.flatMap(contribution => contribution.months);
     const monthlyContributionsArray: number[] = [];
-    for (let i = 0; i < 12; i++) {
-      const currentContributions = monthlyContributions
-        .filter(contribution => contribution.month === i)
-        .map(contribution => contribution.contributions)
-        .reduce((current: number, value: number) => current + value, 0);
 
-      monthlyContributionsArray.push(currentContributions);
+    for (let i = 0; i < monthlyContributions.length - 1; i++) {
+      const monthlyContribution = monthlyContributions[i];
+      const month = monthlyContribution.month;
+      if (monthlyContributionsArray[month] == null) {
+        monthlyContributionsArray[month] = monthlyContribution.contributions;
+      } else {
+        monthlyContributionsArray[month] += monthlyContribution.contributions;
+      }
     }
 
-    let currentMonth = new Date().getMonth();
+    // Begin with next month so the "now" month is the last
+    let currentMonth = now.getMonth() + 1;
+    const xTimesToShift = currentMonth;
     const monthLabels: string[] = [];
     for (let i = 0; i < 12; i++) {
       monthLabels.push(months[currentMonth]);
@@ -106,8 +100,10 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
       }
     }
 
-    monthLabels.push(monthLabels.shift() as string)
-    monthlyContributionsArray.push(monthlyContributionsArray.shift() as number)
+    for (let i = 0; i < xTimesToShift; i++) {
+      monthlyContributionsArray.push(monthlyContributionsArray.shift() as number)
+    }
+
     this.barChartLabels.push(...monthLabels)
     this.barChartData.push({
       data: monthlyContributionsArray,
