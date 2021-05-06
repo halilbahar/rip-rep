@@ -33,7 +33,7 @@ export class AuthenticationService {
         window.location.href = `${url}?type=user_agent&client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
       } else {
-        const authenticationUrl = 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token';
+        const authenticationUrl = 'https://cors-anywhere-halilbahar.herokuapp.com/https://github.com/login/oauth/access_token';
         const authenticationBody = {
           client_id, client_secret, code, redirect_uri
         };
