@@ -23,7 +23,7 @@ export class AuthenticationService {
   checkAuthentication(): void {
     this.router.events.subscribe(async event => {
       if (!(event instanceof RoutesRecognized)) { return }
-      if (localStorage.getItem('access_token')) { return }
+      if (localStorage.getItem('rip-rep.access_token')) { return }
 
       const { client_id, client_secret, redirect_uri } = environment;
       const code = event.state.root.queryParams.code
@@ -48,7 +48,7 @@ export class AuthenticationService {
           { headers: authenticationHeaders }
         );
         const githubToken = await authenticationRequest.toPromise();
-        localStorage.setItem('access_token', githubToken.access_token);
+        localStorage.setItem('rip-rep.access_token', githubToken.access_token);
 
         this.router.navigate([], {
           queryParams: {

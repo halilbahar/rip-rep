@@ -6,7 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 const uri = 'https://api.github.com/graphql';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('rip-rep.access_token');
   const headers = new HttpHeaders({
     Authorization: `token ${token}`
   });
