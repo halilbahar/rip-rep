@@ -65,7 +65,8 @@ export class ChartTotalCommitsMonthlyComponent implements OnInit {
               contributions: currentContributions
             });
             currentContributions = 0;
-          } else if (now.getFullYear() - 1 === lastDayDate.getFullYear() && now.getMonth() === currentMonth) {
+          }
+          if (now.getFullYear() - 1 === lastDayDate.getFullYear() && now.getMonth() === currentMonth) {
             contributions.push(currentUser);
             continue user;
           }
